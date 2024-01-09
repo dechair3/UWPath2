@@ -83,7 +83,7 @@ def findCourses(soup, name):
     commonName = findCommonName(soup)
     notes = findNotes(soup)
     courses = soup.find_all('center')
-    programDetails = {"Name" : commonName, "Notes" : notes, "Courses" : []}
+    programDetails = {"Name" : commonName, "Heading" : name, "Notes" : notes, "Courses" : []}
     for course in courses:
         courseCode = findCourseCode(course)
         courseName = findCourseName(course)

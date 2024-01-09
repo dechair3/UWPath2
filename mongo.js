@@ -12,7 +12,8 @@ mongoose.connect(process.env.MONGODB_URI)
 
 const courseSchema = new mongoose.Schema({
         courseCode : String,
-        Name : String,
+        headingName : String,
+        courseName : String,
         Desc : String,
         Notes : String,
         Consent : String,
@@ -25,6 +26,7 @@ const courseSchema = new mongoose.Schema({
 
 const programSchema = new mongoose.Schema({
     name : String,
+    heading : String,
     notes: String,
     courses: {
       type:  [courseSchema]
