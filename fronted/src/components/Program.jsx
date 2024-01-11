@@ -6,9 +6,7 @@ const Program  = ({programObject}) => {
     const courses = programObject.courses
     return(
         <div>
-            <p>Program Name: {name}</p>
-            <p>Notes : {notes} </p>
-            <p>Courses: </p>
+
             <Course courseObject={courses} />
         </div>
     )

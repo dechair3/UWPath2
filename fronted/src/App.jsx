@@ -3,16 +3,19 @@ import backendService from './backendService'
 import Program from './components/Program'
 
 const App = () => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState({})
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
-    backendService.getOneProgram("ECE")
-    .then((resp) => {
-      setData(resp)
-    })
+    const loadPrograms = async () => {
+      const response = await backendService.getOneProgram("ECE")
+      setData(response)
+    }
+
+    loadPrograms().then(() => setLoaded(true)).catch(console.error)
   }, [])  
 
-  if(data == []){
+  if(!(loaded)){
     return (
       <div>
         <p>Hello world</p>
@@ -20,7 +23,6 @@ const App = () => {
     )
   }
   else{
-    console.log(data)
     return (
       <div>
         <Program programObject={data} />

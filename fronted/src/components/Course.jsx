@@ -1,6 +1,6 @@
 
 const Course = ({courseObject}) => {
-    const courseList = courseObject.map(course => <li>{course.courseName}</li>)
+    const courseList = courseObject.map(course => <li key={course.courseCode}>{course.courseName}</li>)
     return(
         <ul>{courseList}</ul>
     )
